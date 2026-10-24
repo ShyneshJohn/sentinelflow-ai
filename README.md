@@ -145,7 +145,7 @@ The prototype's analysis depends on the evidence supplied to it and the behavior
 
 ## Repository
 
-GitHub: https://github.com/ShyneshJohn/neuro-san-studio
+GitHub: https://github.com/ShyneshJohn/sentinelflow-ai
 
 ## Future Improvements
 
