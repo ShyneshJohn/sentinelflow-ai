@@ -45,22 +45,41 @@ The agents are coordinated through a Neuro SAN agent network. The configured lan
 
 ## Setup
 
-Clone the repository:
+SentinelFlow AI is an agent-network configuration for the Neuro SAN Studio runtime; this repository does not include the complete runtime.
+
+### 1. Obtain the runtime
+
+Clone the official [Neuro SAN Studio repository](https://github.com/cognizant-ai-lab/neuro-san-studio) and follow its installation instructions.
+
+### 2. Obtain SentinelFlow AI
+
+Clone this repository separately:
 
 ```bash
-git clone https://github.com/ShyneshJohn/neuro-san-studio.git
-cd neuro-san-studio
+git clone https://github.com/ShyneshJohn/sentinelflow-ai.git
 ```
 
-Activate the virtual environment if it already exists:
+### 3. Install the project configuration
+
+Copy the SentinelFlow AI network file into the runtime's `registries/generated/` directory and copy the supplied LLM configuration files into the runtime's `config/` directory.
+
+Check the runtime's registry manifest and register the SentinelFlow AI network if it is not already listed.
+
+### 4. Configure the model
+
+Configure `MISTRAL_API_KEY` using your development environment's secret manager. Use a valid key with access to the configured model. Never commit credentials to Git.
+
+### 5. Validate and run
+
+From the Neuro SAN Studio runtime directory, activate its installed Python virtual environment and run:
 
 ```bash
-source venv/bin/activate
+ns check-config
+ns validate registries/generated/sentinel_flow_ai.hocon
+ns run
 ```
 
-If you are setting up a fresh environment, follow the installation instructions in the upstream Neuro SAN Studio repository before proceeding.
-
-Configure your Mistral API key using your development environment's secret manager or the supported environment-variable configuration. Never commit API keys or other secrets to Git.
+Run these commands only after the runtime and model credentials have been configured successfully.
 
 ## Configuration
 
